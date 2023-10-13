@@ -1,0 +1,29 @@
+{
+  "name": "ceshi",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.1.0",
+    "axios": "^0.27.2",
+    "element-plus": "^2.3.12",
+    "moment": "^2.29.4",
+    "qs": "^6.11.0",
+    "vue": "^3.3.4",
+    "vue-contextmenu": "^1.5.11",
+    "vue-router": "^4.2.4",
+    "vuex": "^4.1.0",
+    "vuex-persistedstate": "^4.1.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.2.3",
+    "unplugin-auto-import": "^0.11.1",
+    "unplugin-vue-components": "^0.22.4",
+    "vite": "^4.4.5"
+  }
+}

@@ -1,0 +1,78 @@
+import { createRouter,createWebHistory} from "vue-router";
+const router=createRouter({
+    history:createWebHistory(),
+    routes:[
+        {
+            name:"login",
+            path:"/login",
+            component:()=>import('../views/login/index.vue'),
+        },
+        {
+            name:"home",
+            path:"/",
+            redirect:'/login'
+        },
+        {
+            name:"register",
+            path:"/register",
+            component:()=>import('../views/register/index.vue'),
+        },
+        {
+            name:"main",
+            path:"/main",
+            component:()=>import('../views/layout/index.vue'),
+            children:[
+                {
+                    name:"content1_1",
+                    path:"content1_1",
+                    component:()=>import('../views/content1_1/index.vue'),
+                },
+                {
+                    name:"content1_2",
+                    path:"content1_2",
+                    component:()=>import('../views/content1_2/index.vue'),
+                },
+                {
+                    name:"content1_3",
+                    path:"content1_3",
+                    component:()=>import('../views/content1_3/index.vue'),
+                },
+                {
+                    name:"content1_4",
+                    path:"content1_4",
+                    component:()=>import('../views/content1_4/index.vue'),
+                },
+                {
+                    name:"content2_1",
+                    path:"content2_1",
+                    component:()=>import('../views/content2_1/index.vue'),
+                },
+                {
+                    name:"content2_2",
+                    path:"content2_2",
+                    component:()=>import('../views/content2_2/index.vue'),
+                },
+                {
+                    name:"content2_3",
+                    path:"content2_3",
+                    component:()=>import('../views/content2_3/index.vue'),
+                },
+                {
+                    name:"content2_4",
+                    path:"content2_4",
+                    component:()=>import('../views/content2_4/index.vue'),
+                },
+            ]
+        },
+    ]
+})
+const whiteList=["/","/login"]
+router.beforeEach((to,from,next) => {
+let token=localStorage.getItem("token")
+if(token||whiteList.includes(to.path)){
+    next()
+}else{
+    next({path:"/login"})
+}
+})
+export default router
